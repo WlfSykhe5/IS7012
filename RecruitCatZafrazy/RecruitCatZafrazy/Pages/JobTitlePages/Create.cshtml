@@ -1,0 +1,76 @@
+@page
+@model RecruitCatZafrazy.Pages.JobTitlePages.CreateModel
+
+@{
+    ViewData["Title"] = "Create Job Title";
+}
+
+<h1>Create Job Title</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="JobTitle.JobTitleName" class="control-label"></label>
+                <input asp-for="JobTitle.JobTitleName" class="form-control" />
+                <span asp-validation-for="JobTitle.JobTitleName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JobTitle.EmploymentType" class="control-label"></label>
+
+                <select asp-for="JobTitle.EmploymentType" class="form-control">
+                    <option value="">-- Select Employment Type --</option>
+                    <option value="Permanent">Permanent</option>
+                    <option value="Contractual">Contractual</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Part-Time">Part-Time</option>
+                    <option value="Internship">Internship</option>
+                </select>
+
+                <span asp-validation-for="JobTitle.EmploymentType"
+                      class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JobTitle.MinimumSalary" class="control-label"></label>
+                <input asp-for="JobTitle.MinimumSalary" class="form-control" />
+                <span asp-validation-for="JobTitle.MinimumSalary" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JobTitle.MaximumSalary" class="control-label"></label>
+                <input asp-for="JobTitle.MaximumSalary" class="form-control" />
+                <span asp-validation-for="JobTitle.MaximumSalary" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="JobTitle.JobOffer" class="control-label"></label>
+                <input asp-for="JobTitle.JobOffer" class="form-control" />
+                <span asp-validation-for="JobTitle.JobOffer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit"
+                       value="Create"
+                       class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

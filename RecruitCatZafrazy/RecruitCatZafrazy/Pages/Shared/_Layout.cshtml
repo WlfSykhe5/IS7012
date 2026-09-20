@@ -51,6 +51,31 @@
                             Our Team
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/CandidatePages/Index">
+                            Candidates
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/CompanyPages/Index">
+                            Companies
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/IndustryPages/Index">
+                            Industries
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/JobTitlePages/Index">
+                            Job Titles
+                        </a>
+                    </li>
+
+
 
                 </ul>
 
@@ -60,9 +85,28 @@
     </nav>
 
 
-    <main>
-        @RenderBody()
-    </main>
+    @{
+        var currentPage = ViewContext.RouteData.Values["page"]?.ToString();
+
+        var isPublicPage =
+            currentPage == "/Index" ||
+            currentPage == "/OurTeam";
+    }
+
+    @if (isPublicPage)
+    {
+        <main>
+            @RenderBody()
+        </main>
+    }
+    else
+    {
+        <main class="app-main">
+            <div class="container app-content">
+                @RenderBody()
+            </div>
+        </main>
+    }
 
 
     <footer class="site-footer">
@@ -81,7 +125,7 @@
 
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

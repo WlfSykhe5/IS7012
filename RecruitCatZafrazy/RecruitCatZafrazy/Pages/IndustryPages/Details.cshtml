@@ -1,0 +1,38 @@
+@page
+@model RecruitCatZafrazy.Pages.IndustryPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Industry Details";
+}
+
+<h1>Industry Details</h1>
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Industry.IndustryName)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Industry.IndustryName)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Industry.Description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Industry.Description)
+    </dd>
+</dl>
+
+<div class="mt-4">
+    <a asp-page="./Edit"
+       asp-route-id="@Model.Industry.IndustryId"
+       class="btn btn-primary">
+        Edit
+    </a>
+</div>
+
+<div class="mt-3">
+    <a asp-page="./Index">Back to List</a>
+</div>

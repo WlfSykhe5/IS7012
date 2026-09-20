@@ -1,0 +1,79 @@
+@page
+@model RecruitCatZafrazy.Pages.JobTitlePages.IndexModel
+
+@{
+    ViewData["Title"] = "All Job Titles";
+}
+
+<h1>All Job Titles</h1>
+
+<p>
+    <a asp-page="Create" class="btn-theme">Add Job Title</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].JobTitleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].EmploymentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].MinimumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].MaximumSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle[0].JobOffer)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.JobTitle)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.JobTitleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.EmploymentType)
+                </td>
+                <td>
+                    @item.MinimumSalary.ToString("N2")
+                </td>
+                <td>
+                    @item.MaximumSalary.ToString("N2")
+                </td>
+                <td>
+                    @item.JobOffer.ToString("N2")
+                </td>
+                <td class="text-nowrap">
+                    <a asp-page="./Details"
+                       asp-route-id="@item.JobTitleId"
+                       class="btn-theme-outline me-2">
+                        Details
+                    </a>
+
+                    <a asp-page="./Edit"
+                       asp-route-id="@item.JobTitleId"
+                       class="btn-theme me-2">
+                        Edit
+                    </a>
+
+                    <a asp-page="./Delete"
+                       asp-route-id="@item.JobTitleId"
+                       class="btn-delete">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

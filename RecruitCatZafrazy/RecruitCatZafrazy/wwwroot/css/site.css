@@ -12,6 +12,8 @@
     --text-dark: #2d3432;
     --text-muted: #707572;
     --white: #ffffff;
+    --delete-red: #a95050;
+    --delete-red-dark: #8f4141;
 }
 
 
@@ -119,7 +121,7 @@ p {
 
 
 /* =========================
-   BUTTONS
+   HOME PAGE BUTTONS
    ========================= */
 
 .btn-main {
@@ -149,6 +151,29 @@ p {
     .btn-outline-main:hover {
         background-color: var(--teal-dark);
         color: var(--white);
+    }
+
+
+/* =========================
+   HERO ACTIONS
+   ========================= */
+
+.hero-actions {
+    margin-top: 20px;
+}
+
+.primary-action {
+    margin-bottom: 12px;
+}
+
+.secondary-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+    .secondary-actions .btn {
+        white-space: nowrap;
     }
 
 
@@ -352,6 +377,281 @@ p {
     }
 
 
+/* ==========================================
+   APPLICATION / CRUD PAGE BACKGROUND
+   ========================================== */
+
+.app-main {
+    background-color: var(--cream);
+    min-height: 78vh;
+    padding: 45px 0 60px;
+}
+
+.app-content {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 35px 40px;
+}
+
+
+    /* =========================
+   CRUD PAGE HEADINGS
+   ========================= */
+
+    .app-content h1 {
+        color: var(--teal-dark);
+        font-size: 34px;
+        margin-bottom: 20px;
+    }
+
+    .app-content h2 {
+        color: var(--teal-dark);
+    }
+
+    .app-content h3 {
+        color: var(--teal-dark);
+        margin-top: 20px;
+    }
+
+    .app-content h4 {
+        color: var(--teal-dark);
+    }
+
+    .app-content hr {
+        border-color: var(--border);
+        margin-bottom: 25px;
+    }
+
+
+    /* =========================
+   CRUD TABLES
+   ========================= */
+
+    .app-content .table {
+        margin-top: 20px;
+        margin-bottom: 25px;
+        background-color: var(--white);
+    }
+
+        .app-content .table thead th {
+            color: var(--teal-dark);
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+            padding: 14px 12px;
+            vertical-align: middle;
+        }
+
+        .app-content .table tbody td {
+            padding: 13px 12px;
+            vertical-align: middle;
+        }
+
+        .app-content .table tbody tr:hover {
+            background-color: var(--light-gray);
+        }
+
+
+    /* =========================
+   FORMS
+   ========================= */
+
+    .app-content .form-group {
+        margin-bottom: 18px;
+    }
+
+    .app-content label {
+        color: var(--text-dark);
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .app-content .form-control {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+    }
+
+        .app-content .form-control:focus {
+            border-color: var(--teal-medium);
+            box-shadow: 0 0 0 0.2rem rgba(53, 111, 102, 0.15);
+        }
+
+    .app-content textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .app-content .form-check-input {
+        border-color: var(--teal-medium);
+    }
+
+        .app-content .form-check-input:checked {
+            background-color: var(--teal-dark);
+            border-color: var(--teal-dark);
+        }
+
+
+    /* =========================
+   GENERAL CRUD BUTTON STYLE
+   Create / Save / Edit /
+   Details / Add
+   ========================= */
+
+    /*
+   This also overrides Bootstrap btn-primary
+   inside CRUD pages.
+*/
+
+    .app-content .btn-primary,
+    .app-content a.btn-theme,
+    .app-content a.btn-theme-outline,
+    .app-content .btn-theme,
+    .app-content .btn-theme-outline {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--teal-dark) !important;
+        border: 1px solid var(--teal-dark);
+        border-radius: 8px;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+        .app-content .btn-primary:hover,
+        .app-content .btn-primary:focus,
+        .app-content .btn-primary:active,
+        .app-content a.btn-theme:hover,
+        .app-content a.btn-theme:focus,
+        .app-content a.btn-theme:active,
+        .app-content a.btn-theme-outline:hover,
+        .app-content a.btn-theme-outline:focus,
+        .app-content a.btn-theme-outline:active,
+        .app-content .btn-theme:hover,
+        .app-content .btn-theme-outline:hover {
+            background-color: var(--teal-dark) !important;
+            border-color: var(--teal-dark) !important;
+            color: var(--white) !important;
+            box-shadow: none !important;
+        }
+
+
+        /* Keep visited links readable */
+
+        .app-content a.btn-theme:visited,
+        .app-content a.btn-theme-outline:visited {
+            color: var(--teal-dark) !important;
+        }
+
+        .app-content a.btn-theme:hover:visited,
+        .app-content a.btn-theme-outline:hover:visited {
+            color: var(--white) !important;
+        }
+
+
+    /* =========================
+   DELETE BUTTONS
+   ========================= */
+
+    .app-content .btn-danger,
+    .app-content a.btn-delete,
+    .app-content .btn-delete {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--delete-red) !important;
+        border: 1px solid var(--delete-red);
+        border-radius: 8px;
+        padding: 8px 16px;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+        .app-content .btn-danger:hover,
+        .app-content .btn-danger:focus,
+        .app-content .btn-danger:active,
+        .app-content a.btn-delete:hover,
+        .app-content a.btn-delete:focus,
+        .app-content a.btn-delete:active,
+        .app-content .btn-delete:hover {
+            background-color: var(--delete-red) !important;
+            border-color: var(--delete-red) !important;
+            color: var(--white) !important;
+            box-shadow: none !important;
+        }
+
+        .app-content a.btn-delete:visited {
+            color: var(--delete-red) !important;
+        }
+
+        .app-content a.btn-delete:hover:visited {
+            color: var(--white) !important;
+        }
+
+
+    /* =========================
+   TABLE ACTION BUTTONS
+   ========================= */
+
+    .app-content .table .btn,
+    .app-content .table .btn-theme,
+    .app-content .table .btn-theme-outline,
+    .app-content .table .btn-delete {
+        padding: 6px 12px;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+
+    /* =========================
+   NORMAL LINKS
+   ========================= */
+
+    .app-content a:not(.btn):not(.btn-theme):not(.btn-theme-outline):not(.btn-delete) {
+        color: var(--teal-dark);
+    }
+
+        .app-content a:not(.btn):not(.btn-theme):not(.btn-theme-outline):not(.btn-delete):hover {
+            color: var(--teal-medium);
+        }
+
+
+    /* =========================
+   DETAILS / DELETE PAGES
+   ========================= */
+
+    .app-content dl.row {
+        margin-top: 20px;
+    }
+
+    .app-content dt {
+        color: var(--text-dark);
+        font-weight: 700;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .app-content dd {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+
+    /* =========================
+   VALIDATION
+   ========================= */
+
+    .app-content .text-danger {
+        font-size: 14px;
+        margin-top: 4px;
+    }
+
+    .app-content .validation-summary-errors {
+        margin-bottom: 18px;
+    }
+
+
 /* =========================
    MOBILE
    ========================= */
@@ -374,21 +674,25 @@ p {
     .navbar-nav .nav-link {
         margin-left: 0;
     }
-}
-.hero-actions {
-    margin-top: 20px;
-}
 
-.primary-action {
-    margin-bottom: 12px;
-}
-
-.secondary-actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: nowrap;
-}
-
-    .secondary-actions .btn {
-        white-space: nowrap;
+    .secondary-actions {
+        flex-wrap: wrap;
     }
+
+    .app-main {
+        padding: 25px 0;
+    }
+
+    .app-content {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+
+        .app-content h1 {
+            font-size: 28px;
+        }
+
+        .app-content .table {
+            font-size: 14px;
+        }
+}
